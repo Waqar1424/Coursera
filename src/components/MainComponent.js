@@ -25,13 +25,17 @@ class Main extends Component {
     };
   }
 
-  onDishSelect(dishId){
-    this.setState({ selectedDish : dishId});
-}
-
+ 
 
 
   render() {
+    const DishWithId = ({match}) =>{
+      return(
+          <DishDetail  dish={this.state.dishes.filter((dish) => dish.id === parseInt(match.params.dishId,10))[0]}
+                      comments={this.state.comments.filter((commment) => commment.id === parseInt(match.params.dishId,10))[0]}
+          />
+      );
+    };
     const Homepage =() => {
       return(
         <Home dish={this.state.dishes.filter((dish) => dish.featured)[0]}
@@ -41,16 +45,12 @@ class Main extends Component {
     }
     return (
       <div>      
-      {/* <Navbar dark>
-        <div className="container" >
-            <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
-        </div>
-      </Navbar> */}
       <Header/>
       <Switch>
         <Route path='/home' component={Homepage}/>
-        <Route path="/menu" component={() => <Menu dishes={this.state.dishes}/>}/>
-        <Route path="/contactus" component={Contact}/>
+        <Route exact path="/menu" component={() => <Menu dishes={this.state.dishes}/>}/>
+        <Route path='/menu/:dishId' component={DishWithId}/>
+        <Route exact path="/contactus" component={Contact}/>
         <Redirect to="/home"/>
       </Switch>
       <Footer/>
