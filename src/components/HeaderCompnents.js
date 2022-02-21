@@ -1,5 +1,5 @@
 import react, {Component} from 'react';
-import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron,
+import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem,
     Button, Modal, ModalHeader, ModalBody,
     Form, FormGroup, Input, Label } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
@@ -76,8 +76,8 @@ class Header extends Component {
                     </div>
                </div>
                <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-                    <ModalHeader toggle={this.toggleModal}>Login
-                    <span className='fa fa-close' onClick={this.toggleModel} ></span></ModalHeader>
+                    <ModalHeader toggle={this.toggleModal}><h4 className='position'>Login</h4>
+                    <span className='fa fa-close closeBtn' onClick={this.toggleModel} ></span></ModalHeader>
                     <ModalBody>
                     <Form onSubmit={this.handleLogin}>
                             <FormGroup>
@@ -100,9 +100,7 @@ class Header extends Component {
                             <Button type="submit" value="submit" color="primary">Login</Button>
                         </Form>  
                     </ModalBody>
-                </Modal>
-                    <span className='fa fa-close' onClick={this.toggleModel} ></span>
-                
+                </Modal>    
             </div>
         );
     }

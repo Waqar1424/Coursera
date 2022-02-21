@@ -34,3 +34,7 @@ address{
 .position{
     float: left;
 }
+.closeBtn{
+    position:absolute;
+    float:right;
+}
