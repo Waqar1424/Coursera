@@ -76,8 +76,8 @@ class Header extends Component {
                     </div>
                </div>
                <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-                    <ModalHeader toggle={this.toggleModal}><h4 className='position'>Login</h4>
-                    <span className='fa fa-close closeBtn' onClick={this.toggleModel} ></span></ModalHeader>
+                    <ModalHeader close={<Button className="fa fa-close close" onClick={this.toggleModel}></Button>}><h4 className='position'>Login</h4>
+                    </ModalHeader>
                     <ModalBody>
                     <Form onSubmit={this.handleLogin}>
                             <FormGroup>

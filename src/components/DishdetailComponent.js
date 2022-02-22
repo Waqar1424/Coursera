@@ -8,8 +8,10 @@ import {
   CardBody,
   CardText,
   Breadcrumb,
-  BreadcrumbItem
+  BreadcrumbItem,
+  Button
 } from "reactstrap";
+import CommentForm from "./CommentForm";
 
 class DishDetails extends Component {
   renderDish(dish) {
@@ -42,6 +44,7 @@ class DishDetails extends Component {
               </p>
             </li>
           </ul>
+          <CommentForm/>
         </div>
       );
     else return <div></div>;
