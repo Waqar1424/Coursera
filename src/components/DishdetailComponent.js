@@ -27,7 +27,7 @@ toggleModel(){
     console.log(this.state);
 }
 handleSubmit(values){
-  this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
+  this.props.postComment(this.props.dishId, values.rating, values.author, values.comment);
     this.toggleModel();
 }
 
@@ -111,7 +111,7 @@ handleSubmit(values){
     );
   }
 
-  function RenderComments({comments, addComment, dishId}){
+  function RenderComments({comments, postComment, dishId}){
     if(comments == null){
         return(
             <div></div>
@@ -138,7 +138,7 @@ handleSubmit(values){
             <ul className='list-unstyled'>
                 {cmnts}
             </ul>
-            <CommentForm dishId={dishId} addComment={addComment} />
+            <CommentForm dishId={dishId} postComment={postComment} />
         </div>
     )
 }
@@ -183,7 +183,7 @@ handleSubmit(values){
               </div>
               <div className="col-12 col-md-5 ml-1">
               <RenderComments comments={props.comments}
-            addComment={props.addComment}
+            postComment={props.postComment}
             dishId={props.dish.id}/>
               </div>
             </div>
